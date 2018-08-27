@@ -33,9 +33,10 @@ public class FtpingesterApplication {
 		
 	}
 	
+	// The name of this bean is used in the "bean:" endpoint
 	@Bean
-	public OprFileProcessor oprFileProcessor() {
-		return new OprFileProcessor();
+	public TextFileProcessor textFileProcessor() {
+		return new TextFileProcessor();
 	}
 
 }

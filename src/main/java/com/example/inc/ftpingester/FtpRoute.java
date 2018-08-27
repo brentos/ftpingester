@@ -6,14 +6,15 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class FtpRoute extends RouteBuilder {
-
+	
 	@Override
 	public void configure() throws Exception {
 
-		// &localWorkDirectory=target/tmp
-		from("ftp://localhost:2221/test?username=admin&password=admin&move=.done&moveFailed=.error&readLock=rename&localWorkDirectory=target/tmp")
-			.log(LoggingLevel.INFO, "Processing file ${file:name}")
-			.to("bean:oprFileProcessor");
+		from("ftp://{{ftp.host}}:{{ftp.port}}/test?username={{ftp.username}}"
+				+ "&password={{ftp.password}}&move=.done/${file:onlyname}.${date:now:yyyyMMddHH24mmssSSS}&moveFailed=.error"
+				+ "&readLock=rename&localWorkDirectory={{ftp.workingDir}}")
+			.log(LoggingLevel.INFO, "Processing file ${header.CamelFileName} from host ${header.CamelFileHost}")
+			.to("bean:textFileProcessor"); // This is the name of the spring bean to invoke
 		
 	}
 
