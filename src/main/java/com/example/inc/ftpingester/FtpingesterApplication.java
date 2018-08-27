@@ -10,6 +10,7 @@ import org.apache.ftpserver.usermanager.ClearTextPasswordEncryptor;
 import org.apache.ftpserver.usermanager.PropertiesUserManagerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class FtpingesterApplication {
@@ -32,5 +33,9 @@ public class FtpingesterApplication {
 		
 	}
 	
+	@Bean
+	public OprFileProcessor oprFileProcessor() {
+		return new OprFileProcessor();
+	}
 
 }

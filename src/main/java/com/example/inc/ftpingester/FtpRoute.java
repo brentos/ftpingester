@@ -23,7 +23,7 @@ public class FtpRoute extends RouteBuilder {
 					System.out.println(file.getName());
 				}
 				
-			}).to("file://target");
+			}).to("bean:oprFileProcessor");
 		
 	}
 
