@@ -19,15 +19,6 @@ public class FtpRoute extends RouteBuilder {
 
 				@Override
 				public void process(Exchange exchange) throws Exception {
-					System.out.println("X");
-					System.out.println("X");
-					System.out.println("X");
-					System.out.println("X");
-					System.out.println("X");
-					System.out.println("X");
-					System.out.println("X");
-					System.out.println("X");
-					System.out.println("X");
 					File file = (File)exchange.getIn().getBody();
 					System.out.println(file.getName());
 				}

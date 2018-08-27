@@ -18,6 +18,7 @@ public class FtpingesterApplication {
 		SpringApplication.run(FtpingesterApplication.class, args);
 		
 		// This is ugly and only being used as an example
+		// This just sets up the embedded FTP Server
 		FtpServerFactory serverFactory = new FtpServerFactory();
 		ListenerFactory listenerFactory = new ListenerFactory();
 		listenerFactory.setPort(2221);
