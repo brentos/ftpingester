@@ -29,3 +29,10 @@ Testing file consumption
 While the app is running, create new text files in the `/tmp/ftpserver/test` directory. The contents of these text files will be printed on the command line.
 The files will be copied to the `/tmp/ftpserver/test/.done/` directory with the date and time added as the file extension.
 
+An easy way to create text files is to just echo to a file:
+
+```
+echo "Hello World" > /tmp/ftpserver/test/hello.txt
+```
+
+
