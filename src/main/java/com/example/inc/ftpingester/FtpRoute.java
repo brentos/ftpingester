@@ -13,6 +13,7 @@ public class FtpRoute extends RouteBuilder {
 		from("ftp://{{ftp.host}}:{{ftp.port}}/test?username={{ftp.username}}"
 				+ "&password={{ftp.password}}&move=.done/${file:onlyname}.${date:now:yyyyMMddHH24mmssSSS}&moveFailed=.error"
 				+ "&readLock=rename&localWorkDirectory={{ftp.workingDir}}")
+			.routeId("ftpRoute")
 			.log(LoggingLevel.INFO, "Processing file ${header.CamelFileName} from host ${header.CamelFileHost}")
 			.to("bean:textFileProcessor"); // This is the name of the spring bean to invoke
 		

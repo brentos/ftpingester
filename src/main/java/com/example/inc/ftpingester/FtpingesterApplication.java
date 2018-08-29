@@ -18,19 +18,6 @@ public class FtpingesterApplication {
 	public static void main(String[] args) throws FtpException {
 		SpringApplication.run(FtpingesterApplication.class, args);
 		
-		// This is ugly and only being used as an example
-		// This just sets up the embedded FTP Server
-		FtpServerFactory serverFactory = new FtpServerFactory();
-		ListenerFactory listenerFactory = new ListenerFactory();
-		listenerFactory.setPort(2221);
-		PropertiesUserManagerFactory userManagerFactory = new PropertiesUserManagerFactory();
-		userManagerFactory.setFile(new File("users.properties"));
-		userManagerFactory.setPasswordEncryptor(new ClearTextPasswordEncryptor());
-		serverFactory.setUserManager(userManagerFactory.createUserManager());
-		serverFactory.addListener("default", listenerFactory.createListener());
-		FtpServer server = serverFactory.createServer();
-		server.start();
-		
 	}
 	
 	// The name of this bean is used in the "bean:" endpoint
