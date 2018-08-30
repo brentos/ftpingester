@@ -25,5 +25,10 @@ public class FtpingesterApplication {
 	public TextFileProcessor textFileProcessor() {
 		return new TextFileProcessor();
 	}
+	
+	@Bean
+	public CsvFileProcessor csvFileProcessor() {
+		return new CsvFileProcessor();
+	}
 
 }
